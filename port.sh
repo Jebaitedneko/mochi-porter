@@ -24,7 +24,14 @@ sed -i 's/enforcing/permissive/g' $boot-cmdline
 sed -i 's/$/ androidboot\.selinux\=\permissive/' $boot-cmdline
 sed -i 's/$/ firmware_class\.path\=\/vendor\/firmware\_mnt\/image/' $boot-cmdline
 cat $boot-cmdline | sed 's/ /\n/g' | sort -u | tr '\n' ' ' > boot/bcl && rm $boot-cmdline && mv boot/bcl $boot-cmdline
-./bin/mkbootimg --kernel $boot-zImage --ramdisk $boot-ramdisk.gz --cmdline "$(cat $boot-cmdline)" --base $(cat $boot-base) --pagesize $(cat $boot-pagesize) -o boot_G.img
+
+./bin/mkbootimg \
+--kernel $boot-zImage \
+--ramdisk $boot-ramdisk.gz \
+--cmdline "$(cat $boot-cmdline)" \
+--base $(cat $boot-base) \
+--pagesize $(cat $boot-pagesize) \
+-o boot_G.img
 
 zip -ur $2 boot_G.img && rm boot.img && rm boot_G.img
 zip -d $2 boot.img
