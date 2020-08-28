@@ -1,4 +1,4 @@
-#### [LINUX / TMUX / COLAB] [MIDO/OXYGEN] ####
+#### [LINUX / TMUX / COLAB] [MIDO/OXYGEN/VINCE] ####
 
 #### COLAB INSTANCE ####
 
@@ -7,16 +7,39 @@
 #### AUTO PORTER INSTRUCTIONS ####
 1. Clone this repo
 2. Download a treble mido rom of your choice and place it inside the repo folder root
-3. Script Usage: `./port("-arm" for arm arch).sh < "m" for mido "o" for oxygen > rom.zip`
+3. Script Usage: 
+```
+./{port|port-arm}.sh {m|o|v} rom_name.zip {3|4}
+```
 4. You'll have a modified zip in the repo root
 5. Wipe all partitions except internal storage 
 6. Reboot recovery (important)
 7. Install zip
 
-#### IMPORTANT ####
-Termux users must first run `pkg install root-repo` and then `apt install git` to install git
+EXAMPLE:
 
-`git clone --depth=1 https://github.com/Jebaitedneko/mochi-porter` to clone repo
+mido, 3.18, porting from pc:
+```
+./port.sh m mido_rom.zip 3
+```
+vince, 4.9, porting from termux:
+```
+./port-arm.sh v vince_rom.zip 4
+```
+#### IMPORTANT ####
+Termux users must first run
+
+`pkg install root-repo`
+
+and then
+
+`apt install git`
+
+to install git
+
+`git clone --depth=1 https://github.com/Jebaitedneko/mochi-porter`
+
+to clone repo
 
 Repo will be saved in /data/data/com.termux/files/home/mochi-porter
 
