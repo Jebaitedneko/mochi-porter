@@ -2,6 +2,8 @@
 
 updater=META-INF/com/google/android/updater-script
 
+rm -rf aio_patchers/*
+
 zip_regen() {
 
 unzip bin/core.zip -d tmp
@@ -36,7 +38,7 @@ unzip bin/core.zip -d tmp
 |  rm tmp/${updater}-mido \
 || rm -rf tmp/mochi/vince
 
-7z a aio_patchers/aio-${model}_a10.zip ./tmp/*
+7z a aio_patchers/aio-${model}.zip ./tmp/*
 
 rm -rf tmp
 
