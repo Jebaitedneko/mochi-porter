@@ -17,19 +17,19 @@ mv tmp/mochi ./mochi
 && model=mido \
 && mv tmp/${updater}-mido tmp/$updater \
 && rm tmp/${updater}-* \
-|| rm -rf tmp/mochi/mido
+|| rm -rf mochi/mido
 
 [[ $1 == "o" ]] \
 && model=oxygen \
 && mv tmp/${updater}-oxygen tmp/$updater \
 && rm tmp/${updater}-* \
-|| rm -rf tmp/mochi/oxygen
+|| rm -rf mochi/oxygen
 
 [[ $1 == "v" ]] \
 && model=vince \
 && mv tmp/${updater}-vince tmp/$updater \
 && rm tmp/${updater}-* \
-|| rm -rf tmp/mochi/vince
+|| rm -rf mochi/vince
 
 cat tmp/$updater >> $updater
 echo -e "\nui_print(\"ROM ported to 10or G with MOCHI's autoporting script [TG: @mochi_wwww]\");" >> $updater
