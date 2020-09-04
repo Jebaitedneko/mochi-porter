@@ -7,6 +7,7 @@ mkdir -p boot
 
 unzip $2 $updater boot.img -d .
 sed -i 's/assert(.*);/# Original Zip Script/g' $updater
+sed -i '/less_than_int/d' $updater
 sed -i 's/cust/vendor/g' $updater
 sed -i 's/boot\.img/boot\_G\.img/g' $updater
 
