@@ -13,9 +13,23 @@ sed -i 's/boot\.img/boot\_G\.img/g' $updater
 unzip bin/core.zip -d tmp
 mv tmp/mochi ./mochi
 
-[ $1 == "m" ] && rm -rf mochi/oxygen && rm -rf mochi/vince | rm tmp/$updater | mv tmp/${updater}-mido tmp/$updater || rm -rf mochi/mido
-[ $1 == "o" ] && rm -rf mochi/mido && rm -rf mochi/vince | rm tmp/$updater | mv tmp/${updater}-oxygen tmp/$updater || rm -rf mochi/oxygen
-[ $1 == "v" ] && rm -rf mochi/mido && rm -rf mochi/oxygen | rm tmp/$updater | mv tmp/${updater}-vince tmp/$updater || rm -rf mochi/vince
+[[ $1 == "m" ]] \
+&& model=mido \
+&& mv tmp/${updater}-mido tmp/$updater \
+&& rm tmp/${updater}-* \
+|| rm -rf tmp/mochi/mido
+
+[[ $1 == "o" ]] \
+&& model=oxygen \
+&& mv tmp/${updater}-oxygen tmp/$updater \
+&& rm tmp/${updater}-* \
+|| rm -rf tmp/mochi/oxygen
+
+[[ $1 == "v" ]] \
+&& model=vince \
+&& mv tmp/${updater}-vince tmp/$updater \
+&& rm tmp/${updater}-* \
+|| rm -rf tmp/mochi/vince
 
 cat tmp/$updater >> $updater
 echo -e "\nui_print(\"ROM ported to 10or G with MOCHI's autoporting script [TG: @mochi_wwww]\");" >> $updater
