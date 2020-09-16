@@ -39,8 +39,8 @@ zip --update $2 $updater
 
 ./bin/unpackbootimg -i boot.img -o boot && boot=boot/boot.img
 
-[ $3 == '3' ] && cp bin/kud-3.18-2.1.2 $boot-zImage && kver=3.18.X
-[ $3 == '4' ] && cp bin/kud-4.9-1.2 $boot-zImage && kver=4.9.X
+[ $3 == '3' ] && cp bin/kud-3.18 $boot-zImage && kver=3.18.X
+[ $3 == '4' ] && cp bin/kud-4.9 $boot-zImage && kver=4.9.X
 
 sed -i 's/enforcing/permissive/g' $boot-cmdline
 sed -i 's/$/ androidboot\.selinux\=\permissive/' $boot-cmdline
