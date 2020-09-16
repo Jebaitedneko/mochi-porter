@@ -44,6 +44,6 @@ zip_regen m
 zip_regen o
 zip_regen v
 
-zip_regen_q m
-zip_regen_q o
-zip_regen_q v
+# zip_regen_q m
+# zip_regen_q o
+# zip_regen_q v
