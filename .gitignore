@@ -1,1 +1,3 @@
 bin/core
+aio_patchers/*
+!aio_patchers/*.zip
